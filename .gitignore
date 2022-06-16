@@ -1,0 +1,6 @@
+/*
+
+!.gitignore
+!wezterm/
+!helix/
+helix/runtime
