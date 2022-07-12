@@ -4,7 +4,8 @@ return {
   
   -- Window
 
-  window_decorations = "NONE",
+  alternate_buffer_wheel_scroll_speed = 1,
+  -- window_decorations = "NONE",
   window_padding = {
     left = 0,
     right = 0,
@@ -30,7 +31,6 @@ return {
   },
 
   -- Keybindings
-  
   keys = {
     { key = "LeftArrow", mods = "CTRL|SHIFT", action=wezterm.action{AdjustPaneSize={"Left", 5}}},
     { key = "DownArrow", mods = "CTRL|SHIFT", action=wezterm.action{AdjustPaneSize={"Down", 5}}},
@@ -42,7 +42,7 @@ return {
     { key = "UpArrow", mods = "CTRL", action=wezterm.action{ActivatePaneDirection = "Up"}},
     { key = "DownArrow", mods = "CTRL", action=wezterm.action{ActivatePaneDirection = "Down"}},
 
-    {key = "\\", mods = "CTRL|SHIFT", action=wezterm.action{SplitVertical={
+    {key = "|", mods = "CTRL|SHIFT", action=wezterm.action{SplitVertical={
       domain = "CurrentPaneDomain"
     }}},
     {key = "\\", mods = "CTRL", action=wezterm.action{SplitHorizontal={

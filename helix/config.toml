@@ -1,9 +1,10 @@
-theme = "dark_plus"
+theme = "dark_plus_bar"
 
 [editor]
 # line-number = "relative"
 completion-trigger-len = 1
 scrolloff = 3
+cursorline = true
 
 [editor.file-picker]
 hidden = false
