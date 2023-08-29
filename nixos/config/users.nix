@@ -16,6 +16,7 @@
 	    rustup
 	    cargo-make
 	    cargo-leptos
+      riff
     ];
   };
 }

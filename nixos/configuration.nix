@@ -9,6 +9,7 @@
       ./config/system.nix
       ./config/nginx.nix
       ./config/users.nix
+      ./config/shell.nix
     ];
   
   environment.systemPackages = with pkgs; [
