@@ -12,10 +12,10 @@
     ];
   
   environment.systemPackages = with pkgs; [
-    helix
     rnix-lsp
-    gcc
+    helix
     nginx
+    gcc
   ];  
 
   system.stateVersion = "23.05";
