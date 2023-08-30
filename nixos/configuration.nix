@@ -16,7 +16,6 @@
     rnix-lsp
     helix
     nginx
-    gcc
   ];  
 
   system.stateVersion = "23.05";

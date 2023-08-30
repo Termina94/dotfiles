@@ -11,11 +11,11 @@
 	    gnomeExtensions.gesture-improvements
       firefox
       git
-	    cargo
-	    trunk
-	    rustup
-	    cargo-make
-	    cargo-leptos
+      # cargo
+	    # trunk
+	    # rustup
+	    # cargo-make
+	    # cargo-leptos
       riff
     ];
   };

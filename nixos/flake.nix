@@ -7,9 +7,10 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware";
     home-manager.url = "github:nix-community/home-manager/release-23.05";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    uid.url = "github:Termina94/uid";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager }:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixos-hardware, home-manager, uid }:
     let
       system = "x86_64-linux";
       overlay-unstable = final: prev: {
@@ -35,6 +36,7 @@
               home.stateVersion = "23.05";
               home.packages = with pkgs; [
                 unstable.vscode
+                uid.packages.${system}.uid
               ];
             };
           }
