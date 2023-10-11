@@ -36,6 +36,8 @@
               home.stateVersion = "23.05";
               home.packages = with pkgs; [
                 unstable.vscode
+                unstable.blender
+                unstable.zig
                 uid.packages.${system}.uid
               ];
             };

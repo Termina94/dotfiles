@@ -5,3 +5,5 @@
 !helix/
 helix/runtime
 !nixos/
+
+!nvim/lua/user/init.lua
