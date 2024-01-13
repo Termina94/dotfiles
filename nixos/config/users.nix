@@ -13,11 +13,23 @@
       firefox
       wezterm
       git
+      gitui
+
+      # verpay
+      sass
+      pkg-config
+      trunk
+      rustup
+      clang
+      sea-orm-cli
+      sqlite
 
       # # AstroVim Requirements
+
+      # rustup component add rust-analyzer --toolchain nightly-x86_64-unknown-linux-gnu
+      rust-analyzer
       neovim
       cargo
-      rust-analyzer
       rustc
       rustfmt
       gcc

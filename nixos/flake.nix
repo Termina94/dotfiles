@@ -35,8 +35,13 @@
             home-manager.users.dean = {pkgs, ...}: {
               home.stateVersion = "23.05";
               home.packages = with pkgs; [
-                unstable.vscode
+                unstable.vscode-fhs
                 unstable.blender
+                unstable.chromium
+                unstable.godot_4
+                unstable.ripgrep
+                unstable.cargo-leptos
+                unstable.wasm-bindgen-cli
                 unstable.zig
                 uid.packages.${system}.uid
               ];
