@@ -2,10 +2,10 @@
   description = "Dean's OS Config";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-unstable.url = "github:NixOs/nixpkgs/nixos-unstable";
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-    home-manager.url = "github:nix-community/home-manager/release-23.05";
+    home-manager.url = "github:nix-community/home-manager/release-23.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     uid.url = "github:Termina94/uid";
   };
@@ -33,7 +33,7 @@
             home-manager.useUserPackages = true;            
   
             home-manager.users.dean = {pkgs, ...}: {
-              home.stateVersion = "23.05";
+              home.stateVersion = "23.11";
               home.packages = with pkgs; [
                 unstable.vscode-fhs
                 unstable.blender
