@@ -1,17 +1,34 @@
--- TODO
--- Terminal?
--- New theme?
--- Bookmarks
--- Add longer delay on autoisave and set autosave file types?
-
 -- Settings
 vim.opt.relativenumber = true
+lvim.colorscheme = "vscode"
 lvim.format_on_save = true
 
 -- Plugins
 lvim.plugins = {
   { "tpope/vim-surround" },
+  { "Mofiqul/vscode.nvim" },
   { "metakirby5/codi.vim", cmd = "Codi" },
+  {
+    "tomasky/bookmarks.nvim",
+    config = function()
+      require('bookmarks').setup()
+      lvim.builtin.telescope.extensions = {
+        'bookmarks'
+      }
+      local bm = require("bookmarks")
+      lvim.keys.normal_mode["m"] = bm.bookmark_toggle
+      lvim.builtin.which_key.mappings["f"]["b"] = { "<cmd>Telescope bookmarks list<cr>", "Bookmark" }
+      lvim.builtin.which_key.mappings["m"] = {
+        name = "Marks",
+        m = { bm.bookmark_toggle, "Toggle" },
+        e = { bm.bookmark_ann, "Edit" },
+        c = { bm.bookmark_clean, "Clean" },
+        n = { bm.bookmark_next, "Next" },
+        p = { bm.bookmark_prev, "Previous" },
+        l = { "<cmd>Telescope bookmarks list<cr>", "List" }
+      }
+    end
+  },
   {
     "ggandor/leap.nvim",
     name = "leap",
@@ -27,26 +44,27 @@ lvim.plugins = {
   --     require("auto-save").setup()
   --   end,
   -- },
-  {
-    "karb94/neoscroll.nvim",
-    event = "WinScrolled",
-    config = function()
-      require('neoscroll').setup({
-        -- All these keys will be mapped to their corresponding default scrolling animation
-        mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
-          '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
-        hide_cursor = true,          -- Hide cursor while scrolling
-        stop_eof = true,             -- Stop at <EOF> when scrolling downwards
-        use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
-        respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
-        cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
-        easing_function = nil,       -- Default easing function
-        pre_hook = nil,              -- Function to run before the scrolling animation starts
-        post_hook = nil,             -- Function to run after the scrolling animation ends
-      })
-    end
-  },
+  -- {
+  --   "karb94/neoscroll.nvim",
+  --   event = "WinScrolled",
+  --   config = function()
+  --     require('neoscroll').setup({
+  --       -- All these keys will be mapped to their corresponding default scrolling animation
+  --       mappings = { '<C-u>', '<C-d>', '<C-b>', '<C-f>',
+  --         '<C-y>', '<C-e>', 'zt', 'zz', 'zb' },
+  --       hide_cursor = true,          -- Hide cursor while scrolling
+  --       stop_eof = true,             -- Stop at <EOF> when scrolling downwards
+  --       use_local_scrolloff = false, -- Use the local scope of scrolloff instead of the global scope
+  --       respect_scrolloff = false,   -- Stop scrolling when the cursor reaches the scrolloff margin of the file
+  --       cursor_scrolls_alone = true, -- The cursor will keep on scrolling even if the window cannot scroll further
+  --       easing_function = nil,       -- Default easing function
+  --       pre_hook = nil,              -- Function to run before the scrolling animation starts
+  --       post_hook = nil,             -- Function to run after the scrolling animation ends
+  --     })
+  --   end
+  -- },
 }
+
 
 lvim.builtin.which_key.mappings["S"] = {
   name = "Session",
@@ -62,6 +80,8 @@ lvim.keys.normal_mode["s"] = "<Plug>(leap-forward)"
 lvim.keys.normal_mode["S"] = "<Plug>(leap-backward)"
 lvim.keys.normal_mode["<C-t>"] = "<cmd>ToggleTerm<cr>"
 lvim.keys.normal_mode["<C-s>"] = "<cmd>w<cr>"
+lvim.keys.normal_mode["]<space>"] = "<cmd>call append(line('.'), '')<cr>"
+lvim.keys.normal_mode["[<space>"] = "<cmd>call append(line('.')-1, '')<cr>"
 
 -- Which key mappings
 lvim.builtin.which_key.mappings["s"] = nil
@@ -87,12 +107,14 @@ lvim.builtin.which_key.mappings["b"]["s"] = {
 
 lvim.builtin.which_key.mappings["f"] = {
   name = "Find",
-  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+  b = { "<cmd>Telescope bookmarks list<cr>", "Bookmark" },
+  B = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
   c = { "<cmd>lua require('telescope.builtin').colorscheme({enable_preview = true})<cr>", "Colorscheme" },
   f = { function() require("lvim.core.telescope.custom-finders").find_project_files { previewer = false } end, "File", },
   e = { "<cmd>Telescope find_files<cr>", "File (preview)" },
   h = { "<cmd>Telescope help_tags<cr>", "Help" },
   H = { "<cmd>Telescope highlights<cr>", "Highlight groups" },
+  m = { "<cmd>Telescope marks<cr>", "Marks" },
   M = { "<cmd>Telescope man_pages<cr>", "Man Pages" },
   r = { "<cmd>Telescope oldfiles<cr>", "Recent File" },
   R = { "<cmd>Telescope registers<cr>", "Registers" },
