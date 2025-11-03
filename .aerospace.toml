@@ -142,7 +142,6 @@ automatically-unhide-macos-hidden-apps = false
     cmd-shift-8 = ['move-node-to-workspace 8', 'workspace 8']
     cmd-shift-9 = ['move-node-to-workspace 9', 'workspace 9']
 
-    cmd-shift-f = 'layout floating tiling'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
     cmd-tab = 'workspace-back-and-forth'
@@ -151,6 +150,10 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     cmd-shift-semicolon = 'mode service'
+
+    cmd-enter = 'fullscreen'
+    cmd-shift-f = 'layout floating tiling'
+    cmd-shift-enter = 'exec-and-forget open -n -a "Ghostty"'
 
 # 'service' binding mode declaration.
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -175,3 +178,4 @@ automatically-unhide-macos-hidden-apps = false
     down = 'volume down'
     up = 'volume up'
     shift-down = ['volume set 0', 'mode main']
+
