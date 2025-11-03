@@ -1,0 +1,7 @@
+keybind = cmd+`=toggle_quick_terminal
+theme = "Kanagawa Wave"
+theme = "Belafonte Day"
+theme = "GruvboxDarkHard"
+
+background-opacity = 0.98
+

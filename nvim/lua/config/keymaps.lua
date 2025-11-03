@@ -10,8 +10,8 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 vim.keymap.set('n', '<leader>n', ':tabnew ~/Documents/Notes/notes.md<CR>:vsplit ~/Documents/Notes/TODO.md<CR>', { desc = 'Notes' })
 
 -- quick save
-vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save' })
 vim.keymap.set('n', '<C-S>', ':wa<CR>', { desc = 'Save all' })
+vim.keymap.set('n', '<C-s>', ':w<CR>', { desc = 'Save' })
 
 -- new lines above and below
 vim.keymap.set('n', '[<space>', ':call append(line(".")-1, "")<CR>', { desc = 'Save all' })
@@ -93,6 +93,9 @@ vim.keymap.set('n', '<leader>f<Enter>', builtin.resume, { desc = 'Resume' })
 vim.keymap.set('n', '<leader>fr', builtin.oldfiles, { desc = 'Recent Files' })
 vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Buffer' })
 vim.keymap.set('n', '<leader>fh', ':Telescope find_files hidden=true no_ignore=true<CR>', { desc = 'Hidden' })
+
+-- Commands
+vim.keymap.set('n', '<leader>cf', ':%!jq .', { desc = 'JSON Format' })
 
 -- vim.keymap.set('n', '<leader>fk', builtin.keymaps, { desc = 'Keymaps' })
 -- vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help' })
